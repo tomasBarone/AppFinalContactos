@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AppFinal</string>
+
+    <!-- Títulos y Botones del Formulario de Agregar/Editar -->
+    <string name="add_contact_title">Agregar Nuevo Contacto</string>
+    <string name="edit_contact_title">Editar Contacto</string>
+    <string name="add_button_text">Agregar Contacto</string>
+    <string name="update_button_text">Actualizar Contacto</string>
+
+    <!-- Cadenas para el Diálogo de Confirmación de Eliminación -->
+    <string name="confirm_deletion_title">Confirmar Eliminación</string>
+    <!-- Esta cadena usa %s para inyectar el nombre del contacto en tiempo de ejecución -->
+    <string name="confirm_deletion_message">¿Está seguro de que desea eliminar el contacto para %s?</string>
+    <string name="delete_button_text">Eliminar</string>
+    <string name="cancel_button_text">Cancelar</string>
+</resources>
