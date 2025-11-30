@@ -11,20 +11,43 @@ import kotlinx.coroutines.launch
 // El ViewModel gestiona el estado y la lógica de la UI.
 class ContactViewModel : ViewModel() {
 
-    // allContacts: LiveData que se obtiene del Repositorio.
+
+    // Constante para la validación: Acepta letras (cualquier idioma con \p{L}), espacios, puntos, guiones y apóstrofes.
+
+    private val VALID_NAME_REGEX = Regex("^[\\p{L} .'-]+$")
+
+
+
     // La View lo observa para actualizar la lista automáticamente.
     val allContacts : LiveData<List<Contact>> = ContactRepositorySingleton.allContacts
 
+
     // message: LiveData interno (MutableLiveData) para notificar a la View sobre estados
-    // (éxito, error o validación).
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
 
+
+    // Lógica de validación de nombres
+    private fun isNameValid(nombre: String): Boolean {
+        return VALID_NAME_REGEX.matches(nombre)
+    }
+
     // Función llamada desde la View para agregar un nuevo contacto.
     fun insertContact(nombre: String, telefono: String){
+
+        val cleanName = nombre.trim()
+        val cleanPhone = telefono.trim()
+
+
         // Validación de datos simple (Lógica de Negocio).
         if(nombre.isBlank() || telefono.isBlank()){
             _message.value = "Por favor completa todos los campos"
+            return
+        }
+
+        //  Llamar a la validación de formato
+        if(!isNameValid(cleanName)){
+            _message.value = "El nombre solo puede contener letras, espacios, puntos, guiones y apóstrofes."
             return
         }
 

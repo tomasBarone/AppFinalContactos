@@ -9,8 +9,10 @@
 
     <!-- Cadenas para el Diálogo de Confirmación de Eliminación -->
     <string name="confirm_deletion_title">Confirmar Eliminación</string>
-    <!-- Esta cadena usa %s para inyectar el nombre del contacto en tiempo de ejecución -->
     <string name="confirm_deletion_message">¿Está seguro de que desea eliminar el contacto para %s?</string>
     <string name="delete_button_text">Eliminar</string>
     <string name="cancel_button_text">Cancelar</string>
+
+    <!--  CADENA DE VALIDACIÓN -->
+    <string name="invalid_name_error">El nombre solo puede contener letras y espacios.</string>
 </resources>
